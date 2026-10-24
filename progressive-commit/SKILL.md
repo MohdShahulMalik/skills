@@ -21,7 +21,15 @@ Show the user what changed. List every modified, added, deleted, and renamed fil
 
 ### 2. Analyze
 
-Read every diff (use `git diff` for unstaged, `git diff --cached` for staged). Group changes by logical concern. Common groupings:
+Read every diff (use `git diff` for unstaged, `git diff --cached` for staged). Group changes by logical concern. Check existing commit message conventions:
+
+```
+git log --oneline -20
+```
+
+Adhere to the detected convention (e.g. Conventional Commits, prefix style, capitalization, imperative mood, length) when writing all commit messages. If no clear convention exists, use a short imperative summary.
+
+Common groupings:
 
 - Config/infrastructure changes
 - Feature additions
@@ -131,6 +139,7 @@ Summarize what was committed and confirm the backup is at the path from step 4.
 
 - **Never touch unrelated history.** Only commit changes from the current working tree. Do not amend, rebase, or rewrite existing commits.
 - **Each commit = one logical concern.** If a file touches multiple concerns, split the changes across commits.
+- **Follow existing commit message conventions.** Match the style found in `git log` for all new commits.
 - **Always back up before reverting.** Never run `git restore` or `git checkout` on the working tree without a complete backup first.
 - **Always verify final state matches original.** The diff in step 7 must show zero differences.
 - **Wait for user approval.** The commit plan in step 3 must be explicitly approved before any destructive action (step 5 onward).
