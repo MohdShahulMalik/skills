@@ -1,0 +1,13 @@
+{
+  "name": "headless-capture",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Bundled headless Chromium capture/probe harness. Never uses system Chrome.",
+  "scripts": {
+    "bootstrap": "npm install && npx playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.55.0"
+  }
+}
